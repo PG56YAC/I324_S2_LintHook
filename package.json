@@ -1,0 +1,31 @@
+{
+  "name": "i324-s2-linthook",
+  "version": "1.0.0",
+  "description": "Application to-do d'exercice : linter et hooks (module I324, CPNV)",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -L src/index.js",
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/", "/.github/"]
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.1",
+    "sqlite3": "^5.1.7",
+    "uuid": "^13.0.0",
+    "wait-port": "^1.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14"
+  }
+}
