@@ -100,8 +100,7 @@ async function updateItem(id, item) {
 } 
 
 async function removeItem(id) {
-    let requete = 'DELETE FROM todo_items WHERE id = ?';
-    requete = requete;
+    const requete = 'DELETE FROM todo_items WHERE id = ?';
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
