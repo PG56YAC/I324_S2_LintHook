@@ -6,11 +6,11 @@
 
 Téléchargez et installez la dernière version, en gardant les options proposées par défaut.
 
-| Outil | Lien |
-|---|---|
-| Git | https://git-scm.com/downloads/win |
-| Node.js, version **LTS** (npm est inclus) | https://nodejs.org/fr/download |
-| VS Code | https://code.visualstudio.com/download |
+| Outil                                     | Lien                                   |
+| ----------------------------------------- | -------------------------------------- |
+| Git                                       | https://git-scm.com/downloads/win      |
+| Node.js, version **LTS** (npm est inclus) | https://nodejs.org/fr/download         |
+| VS Code                                   | https://code.visualstudio.com/download |
 
 Vous utilisez WebStorm ou un autre IDE JetBrains ? Gardez-le : Git et le terminal y sont intégrés, toutes les étapes restent valables.
 
@@ -46,9 +46,9 @@ Le bot vous répond par e-mail. Pour recevoir ses messages :
 
 ## En cas de problème
 
-| Symptôme | Solution |
-|---|---|
+| Symptôme                                             | Solution                                                                                                                                                                                                          |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `npm : impossible de charger le fichier ... npm.ps1` | Windows bloque les scripts PowerShell. Lancez une fois `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, ou choisissez **Command Prompt** ou **Git Bash** comme terminal (flèche à côté du `+` du terminal). |
-| `git`, `node` ou `npm` n'est pas reconnu | Fermez complètement VS Code et rouvrez-le, sinon redémarrez le PC. |
-| VS Code pousse avec un autre compte GitHub | **Gestionnaire d'identification Windows** › **Informations d'identification Windows** › supprimez les entrées `git:https://github.com`, puis poussez à nouveau. |
-| Le push est refusé (`403`) | L'invitation au dépôt n'est pas encore acceptée. |
+| `git`, `node` ou `npm` n'est pas reconnu             | Fermez complètement VS Code et rouvrez-le, sinon redémarrez le PC.                                                                                                                                                |
+| VS Code pousse avec un autre compte GitHub           | **Gestionnaire d'identification Windows** › **Informations d'identification Windows** › supprimez les entrées `git:https://github.com`, puis poussez à nouveau.                                                   |
+| Le push est refusé (`403`)                           | L'invitation au dépôt n'est pas encore acceptée.                                                                                                                                                                  |
