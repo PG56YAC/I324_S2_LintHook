@@ -2,4 +2,4 @@
 
 q1: 5
 q2: b
-q3: npm install --no-save
+q3: npm ci
