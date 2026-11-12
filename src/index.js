@@ -7,7 +7,7 @@ const addItem = require('./routes/addItem');
 const updateItem = require('./routes/updateItem');
 const deleteItem = require('./routes/deleteItem');
 
-var PORT = 3000;
+const PORT = 3000;
 
 if (true) {
     app.use(express.json());

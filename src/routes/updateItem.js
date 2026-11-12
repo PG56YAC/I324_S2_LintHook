@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     const champs = {
         name: req.body.name,
         completed: req.body.completed,
-        name: req.body.name,
+
     };
     let etat = 'inconnu';
     if (req.body.completed === true) {

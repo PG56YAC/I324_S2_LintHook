@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '..', 'data', 'todo.db');
 
-let db, dbAll, dbRun;
+let db;
 
 function init() {
     var dirName = path.dirname(location);
