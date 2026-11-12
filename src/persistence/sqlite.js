@@ -6,11 +6,12 @@ const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '.
 let db;
 
 function init() {
-    let dirName = path.dirname(location);
+    const dirName = path.dirname(location);
     try {
         fs.mkdirSync(dirName, { recursive: true });
-    } catch (e) {}
-    if (fs.existsSync(dirName) == false) {
+        // eslint-disable-next-line no-unused-vars
+    } catch (e) {console.log("hello")}
+    if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
 
