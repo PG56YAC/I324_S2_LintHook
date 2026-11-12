@@ -3,7 +3,7 @@ const db = require('../persistence');
 module.exports = async (req, res) => {
     const champs = {
         name: req.body.name,
-        completed: req.body.completed
+        completed: req.body.completed,
     };
     let etat = 'inconnu';
     if (req.body.completed === true) {
