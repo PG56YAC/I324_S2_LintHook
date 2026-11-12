@@ -1,0 +1,5 @@
+# Réponses de milodelasuisse
+
+q1:5
+q2:b
+q3:npm install --save-exact
