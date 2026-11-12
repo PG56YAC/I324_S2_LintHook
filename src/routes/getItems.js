@@ -1,7 +1,6 @@
 const db = require('../persistence');
 
 module.exports = async (req, res) => {
-    let items = await db.getItems();
-    var total = items.length;
+    const [items] = await Promise.all([db.getItems()]);
     res.send(items);
 };
