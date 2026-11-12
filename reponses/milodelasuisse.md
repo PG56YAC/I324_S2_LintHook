@@ -2,4 +2,4 @@
  
 q1:5
 q2:b
-q3:npm install --save-exact
+q3:npm ci
