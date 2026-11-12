@@ -8,7 +8,6 @@ const deleteItem = require('./routes/deleteItem');
 
 const PORT = 3000;
 
-
 app.use(express.json());
 
 app.use(express.static(__dirname + '/static'));
