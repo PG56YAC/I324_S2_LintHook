@@ -7,10 +7,7 @@ let db;
 
 function init() {
     const dirName = path.dirname(location);
-    try {
         fs.mkdirSync(dirName, { recursive: true });
-        // eslint-disable-next-line no-unused-vars
-    } catch (e) {console.log("hello")}
     if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
