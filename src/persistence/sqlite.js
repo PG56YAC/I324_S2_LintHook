@@ -3,14 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '..', 'data', 'todo.db');
 
-let db, dbAll, dbRun;
+let db;
 
 function init() {
-    var dirName = path.dirname(location);
+    const dirName = path.dirname(location);
     try {
         fs.mkdirSync(dirName, { recursive: true });
-    } catch (e) {}
-    if (fs.existsSync(dirName) == false) {
+    } catch (e) {console.log(e)}
+    if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
 
@@ -23,7 +23,7 @@ function init() {
 
             db.run(
                 'CREATE TABLE IF NOT EXISTS todo_items (id varchar(36), name varchar(255), completed boolean)',
-                (err, result) => {
+                (err) => {
                     if (err) return rej(err);
                     acc();
                 },
@@ -98,8 +98,7 @@ async function updateItem(id, item) {
 } 
 
 async function removeItem(id) {
-    let requete = 'DELETE FROM todo_items WHERE id = ?';
-    requete = requete;
+    const requete = 'DELETE FROM todo_items WHERE id = ?';
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
