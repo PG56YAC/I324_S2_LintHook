@@ -98,9 +98,7 @@ async function updateItem(id, item) {
 } 
 
 async function removeItem(id) {
-    let requete = 'DELETE FROM todo_items WHERE id = ?';
-    // eslint-disable-next-line no-self-assign
-    requete = requete;
+    const requete = 'DELETE FROM todo_items WHERE id = ?';
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
