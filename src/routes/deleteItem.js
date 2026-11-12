@@ -10,5 +10,4 @@ module.exports = async (req, res) => {
     console.log('Tâche supprimée');
 
     return;
-
 };
