@@ -1,5 +1,5 @@
 # Réponses de <pseudo>
 
 q1: 5
-q2:  uniquement 10.14.0
+q2: a
 q3: npm ci 
