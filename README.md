@@ -16,20 +16,20 @@ Si votre PC n'est pas encore prêt (Git, Node.js, identité Git, notifications),
 
 1. **Cloner** le dépôt dans VS Code (`Ctrl+Shift+P` › **Git: Clone**), avec l'adresse donnée par l'enseignant, puis ouvrir le dossier.
 2. **Installer** les dépendances et **lancer** l'application, dans le terminal :
-   ```
-   npm install
-   npm run dev
-   ```
-   Ouvrez http://localhost:3000 et ajoutez une tâche. Arrêtez ensuite l'application avec `Ctrl+C` dans le terminal.
+    ```
+    npm install
+    npm run dev
+    ```
+    Ouvrez http://localhost:3000 et ajoutez une tâche. Arrêtez ensuite l'application avec `Ctrl+C` dans le terminal.
 3. **Créer votre branche** `lint/<pseudo>` à partir de `origin/main` : en bas à gauche, cliquez sur le nom de la branche › **Create new branch from...** › `origin/main`.
 4. **Créer votre fichier de réponses** `reponses/<pseudo>.md`, avec ce contenu :
-   ```
-   # Réponses de <pseudo>
+    ```
+    # Réponses de <pseudo>
 
-   q1:
-   q2:
-   q3:
-   ```
+    q1:
+    q2:
+    q3:
+    ```
 5. **Commit** avec le message `docs: ajoute ma fiche de réponses`. Ajoutez aussi le fichier `package-lock.json` créé par `npm install`.
 6. **Pousser** : bouton **Publish Branch**.
 
