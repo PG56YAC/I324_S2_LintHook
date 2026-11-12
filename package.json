@@ -10,14 +10,19 @@
     "test": "jest"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["/node_modules/", "/.github/"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.github/"
+    ]
   },
   "dependencies": {
     "express": "^5.2.1",
     "mysql2": "^3.16.1",
-    "sqlite3": "^5.1.7",
+    "sqlite3": "^6.0.1",
     "uuid": "^13.0.0",
     "wait-port": "^1.1.0"
   },
@@ -25,7 +30,10 @@
     "@eslint/js": "^10.0.0",
     "eslint": "^10.14.0",
     "globals": "^17.14.0",
-    "jest": "^30.5.2",
-    "nodemon": "^3.1.14"
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.11"
+  },
+  "allowScripts": {
+    "sqlite3@6.0.1": true
   }
 }
