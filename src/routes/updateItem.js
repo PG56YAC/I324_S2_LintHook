@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     } else if (req.body.completed === false) {
         etat = 'en cours';
     }
-    let id = req.params.id;
+    const id = req.params.id;
     await db.updateItem(id, champs);
     const item = await db.getItem(id);
     res.send(item);

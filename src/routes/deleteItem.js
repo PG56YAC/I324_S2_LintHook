@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
 
         await db.removeItem(id);
 
-        throw e;
+
 
     console.log('Tâche supprimée');
     res.sendStatus(200);
