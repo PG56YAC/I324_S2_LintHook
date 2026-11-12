@@ -3,19 +3,19 @@ const fs = require('fs');
 const path = require('path');
 const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '..', 'data', 'todo.db');
 
-let db, dbAll, dbRun;
+//let db, dbAll, dbRun;
 
 function init() {
-    var dirName = path.dirname(location);
+    const dirName = path.dirname(location);
     try {
         fs.mkdirSync(dirName, { recursive: true });
     } catch (e) {}
-    if (fs.existsSync(dirName) == false) {
+    if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
 
     return new Promise((acc, rej) => {
-        db = new sqlite3.Database(location, err => {
+       const db = new sqlite3.Database(location, err => {
             if (err) return rej(err);
 
             if (process.env.NODE_ENV !== 'test')
@@ -34,7 +34,7 @@ function init() {
 
 async function teardown() {
     return new Promise((acc, rej) => {
-        db.close(err => {
+         db.close(err => {
             if (err) rej(err);
             else acc();
         });
@@ -99,7 +99,7 @@ async function updateItem(id, item) {
 
 async function removeItem(id) {
     let requete = 'DELETE FROM todo_items WHERE id = ?';
-    requete = requete;
+    requete += requete;
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
