@@ -10,7 +10,7 @@ function init() {
     try {
         fs.mkdirSync(dirName, { recursive: true });
     } catch (e) {}
-    if (fs.existsSync(dirName) == false) {
+    if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
 
@@ -99,7 +99,7 @@ async function updateItem(id, item) {
 
 async function removeItem(id) {
     let requete = 'DELETE FROM todo_items WHERE id = ?';
-    requete = requete;
+    requete = requete || 'DELETE FROM todo_items WHERE id = ?';
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
