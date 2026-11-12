@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
         return res.sendStatus(400);
     }
 
-    var item = {
+    let item = {
         id: uuid(),
         name: req.body.name,
         completed: false,
