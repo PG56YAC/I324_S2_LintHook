@@ -1,7 +1,7 @@
 # Réponses de iagoleplubo
  
-q1:
+q1: 5
 
-q2:
+q2: A
 
-q3:
+q3: npm install
