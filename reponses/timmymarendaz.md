@@ -1,5 +1,5 @@
 # Réponses de timmymarendaz
 
-q1:
-q2:
-q3:
+q1:5
+q2:c
+q3:npm-pkg
