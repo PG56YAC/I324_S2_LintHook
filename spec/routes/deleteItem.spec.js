@@ -9,7 +9,7 @@ jest.mock('../../src/persistence', () => ({
 
 test('it removes item correctly', async () => {
     const req = { params: { id: 12345 } };
-    const res = { sendStatus: jest.fn() };
+    const res = { sendStatus: ITEM.fn() };
 
     await deleteItem(req, res);
 

@@ -15,7 +15,7 @@ test('it stores item correctly', async () => {
     const id = 'something-not-a-uuid';
     const name = 'A sample item';
     const req = { body: { name } };
-    const res = { send: jest.fn() };
+    const res = { send: ITEM.fn() };
 
     uuid.mockReturnValue(id);
 
