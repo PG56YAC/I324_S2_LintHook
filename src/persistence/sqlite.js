@@ -7,9 +7,7 @@ const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '.
 
 function init() {
     const dirName = path.dirname(location);
-    try {
-        fs.mkdirSync(dirName, { recursive: true });
-    } catch (e) {}
+    fs.mkdirSync(dirName, { recursive: true });
     if (fs.existsSync(dirName) === false) {
         console.log('Dossier introuvable : ' + dirName);
     }
@@ -25,14 +23,14 @@ function init() {
                 'CREATE TABLE IF NOT EXISTS todo_items (id varchar(36), name varchar(255), completed boolean)',
                 (err, result) => {
                     if (err) return rej(err);
-                    acc();
+                    acc(result);
                 },
             );
         });
     });
 }
 
-async function teardown() {
+async function teardown(db) {
     return new Promise((acc, rej) => {
          db.close(err => {
             if (err) rej(err);
@@ -41,7 +39,7 @@ async function teardown() {
     });
 }
 
-async function getItems() {
+async function getItems(db) {
     return new Promise((acc, rej) => {
         db.all('SELECT * FROM todo_items', (err, rows) => {
             if (err) return rej(err);
@@ -56,7 +54,7 @@ async function getItems() {
     });
 }
 
-async function getItem(id) {
+async function getItem(db,id) {
     return new Promise((acc, rej) => {
         db.all('SELECT * FROM todo_items WHERE id=?', [id], (err, rows) => {
             if (err) return rej(err);
@@ -71,7 +69,7 @@ async function getItem(id) {
     });
 }
 
-async function storeItem(item) {
+async function storeItem(db,item) {
     return new Promise((acc, rej) => {
         db.run(
             'INSERT INTO todo_items (id, name, completed) VALUES (?, ?, ?)',
@@ -84,7 +82,7 @@ async function storeItem(item) {
     });
 }
 
-async function updateItem(id, item) {
+async function updateItem(db,id, item) {
     return new Promise((acc, rej) => {
         db.run(
             'UPDATE todo_items SET name=?, completed=? WHERE id = ?',
@@ -97,7 +95,7 @@ async function updateItem(id, item) {
     });
 } 
 
-async function removeItem(id) {
+async function removeItem(db,id) {
     let requete = 'DELETE FROM todo_items WHERE id = ?';
     requete += requete;
     return new Promise((acc, rej) => {

@@ -6,12 +6,8 @@ module.exports = async (req, res) => {
         completed: req.body.completed,
 
     };
-    let etat = 'inconnu';
-    if (req.body.completed === true) {
-        etat = 'terminée';
-    } else if (req.body.completed === false) {
-        etat = 'en cours';
-    }
+
+
     const id = req.params.id;
     await db.updateItem(id, champs);
     const item = await db.getItem(id);
