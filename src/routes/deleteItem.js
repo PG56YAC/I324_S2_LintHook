@@ -1,13 +1,8 @@
 const db = require('../persistence');
 
 module.exports = async (req, res) => {
-    let id = req.params.id;
-    try {
-        await db.removeItem(id);
-    } catch (e) {
-        throw e;
-    }
+    const id = req.params.id;
+    await db.removeItem(id);
     res.sendStatus(200);
-    return;
     console.log('Tâche supprimée');
 };
