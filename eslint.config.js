@@ -4,7 +4,13 @@ const globals = require('globals');
 
 module.exports = [
     {
-        ignores: ['node_modules/', 'src/static/', 'data/', 'coverage/', '.github/'],
+        ignores: [
+            'node_modules/',
+            'src/static/',
+            'data/',
+            'coverage/',
+            '.github/',
+        ],
     },
     js.configs.recommended,
     {
