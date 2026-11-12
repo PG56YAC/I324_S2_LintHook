@@ -3,16 +3,35 @@ const fs = require('fs');
 const path = require('path');
 const location = process.env.SQLITE_DB_LOCATION || path.join(__dirname, '..', '..', 'data', 'todo.db');
 
+const db = new sqlite3.Database(location);
 
 function init() {
     const dirName = path.dirname(location);
     try {
         fs.mkdirSync(dirName, { recursive: true });
-    } catch (e) {}
-    if (fs.existsSync(dirName) === false) {
-        console.log('Dossier introuvable : ' + dirName);
+    } catch {
+        if (fs.existsSync(dirName) === false) {
+            console.log('Dossier introuvable : ' + dirName);
+        }
     }
 
+    return new Promise((acc, rej) => {
+        const db = new sqlite3.Database(location, err => {
+            if (err) return rej(err);
+
+            if (process.env.NODE_ENV !== 'test')
+                console.log(`Using sqlite database at ${location}`);
+
+            db.run(
+                'CREATE TABLE IF NOT EXISTS todo_items (id varchar(36), name varchar(255), completed boolean)',
+                (err) => {
+                    if (err) return rej(err);
+                    acc();
+                },
+            );
+        });
+    });
+}
 
 async function teardown() {
     return new Promise((acc, rej) => {
@@ -77,11 +96,10 @@ async function updateItem(id, item) {
             },
         );
     });
-} 
+}
 
 async function removeItem(id) {
-    let requete = 'DELETE FROM todo_items WHERE id = ?';
-    requete = requete;
+    const requete = 'DELETE FROM todo_items WHERE id = ?';
     return new Promise((acc, rej) => {
         db.run(requete, [id], err => {
             if (err) return rej(err);
@@ -99,3 +117,4 @@ module.exports = {
     updateItem,
     removeItem,
 };
+
