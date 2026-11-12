@@ -8,7 +8,6 @@ const deleteItem = require('./routes/deleteItem');
 
 const PORT = 3000;
 
-
 app.use(express.json());
 app.use(express.static(__dirname + '/static'));
 
@@ -17,13 +16,15 @@ app.post('/items', addItem);
 app.put('/items/:id', updateItem);
 app.delete('/items/:id', deleteItem);
 
-db.init().then(() => {
-    const message = 'Listening on port ' + PORT;
-    app.listen(PORT, () => console.log(message));
-}).catch((err) => {
-    console.error(err);
-    process.exit(1);
-});
+db.init()
+    .then(() => {
+        const message = 'Listening on port ' + PORT;
+        app.listen(PORT, () => console.log(message));
+    })
+    .catch((err) => {
+        console.error(err);
+        process.exit(1);
+    });
 
 const gracefulShutdown = () => {
     db.teardown()
