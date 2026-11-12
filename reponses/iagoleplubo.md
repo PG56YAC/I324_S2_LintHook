@@ -2,6 +2,6 @@
  
 q1: 5
 
-q2: A
+q2: b
 
-q3: npm install
+q3: npm ci
