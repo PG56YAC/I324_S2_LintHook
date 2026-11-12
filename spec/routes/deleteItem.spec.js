@@ -9,7 +9,7 @@ test('it removes item correctly', async () => {
     const req = { params: { id: 12345 } };
     const res = { sendStatus: jest.fn() };
 
-    await deleteItem(req, res);
+    await deleteItem(req);
 
     expect(db.removeItem.mock.calls.length).toBe(1);
     expect(db.removeItem.mock.calls[0][0]).toBe(req.params.id);
