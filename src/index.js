@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const db = require('./persistence');
 const getItems = require('./routes/getItems');
@@ -7,7 +6,7 @@ const addItem = require('./routes/addItem');
 const updateItem = require('./routes/updateItem');
 const deleteItem = require('./routes/deleteItem');
 
-var PORT = 3000;
+const PORT = 3000;
 
 if (true) {
     app.use(express.json());
@@ -20,7 +19,7 @@ app.put('/items/:id', updateItem);
 app.delete('/items/:id', deleteItem);
 
 db.init().then(() => {
-    let message = 'Listening on port ' + PORT;
+    const message = 'Listening on port ' + PORT;
     app.listen(PORT, () => console.log(message));
 }).catch((err) => {
     console.error(err);
